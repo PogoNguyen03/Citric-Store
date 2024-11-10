@@ -1,0 +1,60 @@
+﻿@model CitricStore.Models.CUSTOMER
+
+@{
+    ViewBag.Title = "ResetPass";
+    Layout = "~/Views/Shared/_Layout_HomePage.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
+<link rel="stylesheet" href="~/Content/User.css" />
+<link href="~/Content/ResetPass.css" rel="stylesheet" />
+
+<div class="container col-lg-6 col-md-10 col-sm-12 thandatlạimatkhau">
+    <h2 class="title">ĐẶT LẠI MẬT KHẨU</h2>
+    <h2 class="thongbao">@ViewBag.ThongBao</h2>
+
+    <div class="thanresetpass">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.IDCus)
+                @Html.HiddenFor(model => model.LogName)
+                @Html.HiddenFor(model => model.EmailCus)
+                @Html.HiddenFor(model => model.Sex)
+                @Html.HiddenFor(model => model.PhoneCus)
+                @Html.HiddenFor(model => model.NameCus)
+                @Html.HiddenFor(model => model.Birthday)
+
+
+                <div class="tendangnhap">
+                    <strong>Tên đăng nhập:</strong> @Model.LogName
+                </div>
+
+                <div class="resetpass">
+                    <strong>Email:</strong> @Model.EmailCus
+                </div>
+
+
+                <div class="resetpass">
+                    <strong>Mật khẩu:</strong>
+                    
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.LogPass, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.LogPass, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                    <div class="row justify-content-center">
+                        <input type="submit" value="Lưu" class="btn btn-dark nutluu" />
+                    </div>
+
+            </div>
+        }
+    </div>
+</div>
+
+

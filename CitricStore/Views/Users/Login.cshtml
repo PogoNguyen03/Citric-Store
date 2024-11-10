@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Đăng Nhập";
+    Layout = "~/Views/Shared/_Layout_HomePage.cshtml";
+}
+<link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
+<link rel="stylesheet" href="~/Content/User.css" />
+<link href="~/Content/Login.css" rel="stylesheet" />
+<div class="container col-lg-6 col-md-10" style="margin:0px auto;">
+
+    <h2 class="title">ĐĂNG NHẬP</h2>
+    <h2 class="thongbao">@ViewBag.ThongBao</h2>
+    <div class="chitiet">
+
+        @using (Html.BeginForm("Login", "Users"))
+        {
+            @Html.ValidationSummary(true)
+            <div class="mb-3 mt-3">
+                <label for="name" class="form-label">Tên đăng nhập:</label>
+                <input type="text" class="form-control" id="name" name="LogName" required>
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="pass" class="form-label">Mật khẩu:</label>
+                <input type="password" class="form-control" id="pass" name="LogPass" required>
+            </div>
+            <div class="row">
+                <div class="col-6 justify-content-end align-content-end chuanutdangnhap">
+                    <button type="submit" class="btn btn-dark nutdangnhap">Đăng Nhập</button>
+
+                </div>
+                <div class="col-6 quenmatkhau">
+                    <a class="ForgotPass" href=@Url.Action("ForgotPass", "Users")>
+                        Quên mật khẩu ?
+
+                    </a>
+                </div>
+            </div>
+
+            <hr />
+            <p class="hoinguoidung" >Bạn chưa có tài khoản? @Html.ActionLink("Đăng Ký.", "Register", "Users", 
+                                                           null, new { @class = "login" })</p>
+        }
+    </div>
+</div>
+
+
+
+
+
+

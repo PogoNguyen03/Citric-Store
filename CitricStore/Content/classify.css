@@ -1,0 +1,352 @@
+﻿* {
+    margin: 0px;
+    padding:0px;
+}
+
+
+.tennoidung {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    position: relative;
+    align-items: center;
+}
+
+.control-label {
+    color: white;
+}
+
+.imageblog-width-height{
+    width:280px
+}
+
+.bloggame-theloai {
+    color: white;
+}
+
+.bloggame-download-btn{
+    color:white;
+}
+
+
+
+/* Slide image auto */
+.slideshow {
+    height: 450px;
+    margin: 0 auto;
+}
+
+.slides {
+    display: none;
+    width: 100%;
+    height: 450px;
+    vertical-align: middle;
+}
+
+.imageslides {
+    width: 100%;
+    height: 450px;
+}
+
+.display-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+
+/*Nút qua lại*/
+.button-left {
+    left: 1%;
+    font-size: 35px;
+    z-index: 5;
+}
+
+.button-right {
+    right: 1%;
+    font-size: 35px;
+    z-index: 5;
+}
+
+.image-button {
+    border: none;
+    display: inline-block;
+    padding: 10px;
+    height: 50px;
+    vertical-align: middle;
+    overflow: hidden;
+    color: #fff;
+    background: transparent;
+    position: absolute;
+    top: calc(50% - 25px);
+    opacity: 0.5;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+    .image-button:hover {
+        color: #000;
+    }
+
+/*Chấm tròn*/
+.badge {
+    text-align: center;
+    margin-bottom: 16px;
+    font-size: 20px;
+    position: absolute;
+    bottom: 0;
+    align-items:center
+}
+
+.badge-white {
+    color: #000 !important;
+    background-color: #fff !important
+}
+
+.image-badge {
+    display: inline-block;
+    border-radius: 50%;
+    height: 14px;
+    width: 14px;
+    border: 1px solid #ccc;
+}
+
+    .image-badge:hover {
+        background: #fff;
+    }
+
+/*Hiệu ứng chuyển ảnh*/
+.animate-fading {
+    width: 100%;
+    animation: fading;
+    animation-duration: 11s;
+}
+
+@keyframes fading {
+    0% {
+        opacity: 0
+    }
+
+    50% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0
+    }
+}
+
+/*Caption image slides*/
+.imageslides-caption {
+    position: absolute;
+    height: 100%;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    z-index: 0;
+    width: 270px;
+    background-color: rgba(0,0,0,.8);
+}
+
+.imageslides-content {
+    color: white;
+    text-align: left;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.imageslides-description {
+    color: white;
+}
+
+.imageslides-more-btn {
+    margin: 0px auto;
+    text-align: center;
+    height: 30px;
+    width: fit-content;
+    color: black;
+    background-color: white;
+    border-color: white;
+    padding: 7px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: 0.15s all;
+    cursor: pointer;
+    text-decoration: none
+}
+
+    .imageslides-more-btn:hover {
+        color: #FCAE03;
+        text-decoration: underline solid;
+    }
+
+.imageslides-title {
+    font-size: 17px;
+    margin-top: 20%;
+}
+
+.dexuat-container {
+    width: 100%;
+}
+
+
+.dexuat-name {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    position: relative;
+    align-items: center;
+    margin-bottom:20px;
+}
+
+    .dexuat-name > span {
+        font-size:25px;
+        padding-right: 20px;
+        padding-left: 20px;
+        color: white;
+    }
+
+.line:first-child {
+    width: 70px;
+    flex: unset;
+}
+
+.line {
+    display: block;
+    background: #FCAE03;
+    height: 4px;
+    width: 100%;
+    flex: 1;
+}
+
+.dexuat-apps {
+    width: 100%;
+}
+
+.dexuat-apps {
+    width: 100%;
+}
+
+.bloggame {
+    width: auto;
+    height: auto;
+    margin: 0px auto;
+    align-items: center;
+}
+
+.imageblog {
+    display: block;
+    overflow: hidden;
+    border-radius: 4px;
+    -webkit-transition: opacity 0.15s ease-in-out;
+    -o-transition: opacity 0.15s ease-in-out;
+    transition: opacity 0.15s ease-in-out;
+}
+
+.imageblog-width-height {
+    width: 100%;
+    height: 170px;
+    vertical-align: middle;
+}
+
+.bloggame-title {
+    color: white;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+    .bloggame-title:hover {
+        color: #FCAE03;
+    }
+
+.bloggame-theloai {
+    color: white;
+    font-size: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bloggame-download {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.bloggame-download-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px auto;
+    text-decoration: none;
+    color: white;
+}
+
+.bloggame-download-btn {
+    background-color: #293139;
+    border-color: #101215;
+    padding: 5px 10px;
+    font-size: 16px;
+    line-height: 1.5;
+    height: 35px;
+    width: 100px;
+    border-radius: 4px;
+    font-weight: 400;
+    text-transform: uppercase;
+    transition: 0.15s all;
+    cursor: pointer;
+}
+
+    .bloggame-download-btn:hover {
+        color: white;
+    }
+.filter-title{
+    color:white;
+    font-weight:500;
+}
+
+.filter-container {
+    width: 100%;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.filter-1 {
+    text-decoration: none;
+    border: 2px solid;
+    border-color: #FCAE03;
+    border-radius:4px;
+    width:fit-content;
+    text-align:center;
+}
+.filter-2 {
+    text-decoration: none;
+    border: 2px solid;
+    border-color: #FCAE03;
+    border-radius: 4px;
+    width: fit-content;
+    text-align: center;
+    margin-left:20px;
+}
+
+.filter-1:hover {
+    color:white;
+}
+
+.filter-2:hover{
+    color:white;
+}

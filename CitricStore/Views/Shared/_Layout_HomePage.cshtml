@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Citric Store | @ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/Layout_HomePage.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
+    <script src="~/Content/bootstrap5/js/bootstrap.js"></script>
+    <link href="~/Content/User.css" rel="stylesheet"/>
+    <link rel="shortcut icon" type="image/png" href="~/Images/LOGO/LOGO_Black.png" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet"/>
+
+</head>
+<body style="background-color:rgb(18,18,18)" id="body-container">
+    <header id="header" class="container-fluid">
+        <div class="row">
+            <div class="col-lg-1 col-md-1 col-sm-1 d-flex justify-content-center" style="align-items:center;">
+                <img src="~/Images/LOGO/LOGO_Black.png" alt="Citric Logo" style="width:50px; height:50px;" />
+            </div>
+            <div class="tenweb col-lg-1 col-md-2 col-sm-3">
+                <img src="~/Images/LOGO/CITRICSTORE.png" alt="Citric" style="width:auto; height:100px; margin-top:-18px; margin-left:-50px" />
+            </div>
+            <div class="header-left-container col-lg-5 col-md-6 col-sm-5">
+                <div class="header-left">
+                    <a class="header-left-name header-left-name-btn" href="@Url.Action("HomePage", "CitricStore")" style="color:black;">Cửa hàng</a>
+                    <a href="@Url.Action("Page_FAQ","CitricStore")" style="width:200px; color:black;" class="header-left-name header-left-name-btn">Câu hỏi thường gặp</a>
+                </div>
+            </div>
+            <div class="header-right-container col-lg-5 col-md-3 col-sm-3" style="font-size:16px;">
+                <ul class="header-right">
+                    <li class="header-right-name">
+                        @Html.Action("Extension_CartPartial", "Cart")
+                    </li>
+                    <li class="header-right-name">
+                        @if (Session["TaiKhoan"] != null)
+                        {
+                            <div class="dropdown">
+                                <a href="#" class="dropdown-toggle" style="color: black; text-decoration:none;"
+                                   role="button" id="dropdownMenu" type="button"
+                                   data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">
+                                    @Session["LogName"].ToString()
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu"
+                                     style=" border: none; z-index: 1001;background-color: #FCAE03; animation:none;transition:none">
+                                    @Html.ActionLink("Xem Thông Tin", "ViewInfo", "Users", new { idkh = Session["IDCus"] }, new { @class = "dropdown-item XemThongTin" })
+
+
+                                    @Html.ActionLink("Đơn Hàng Đã Mua", "PurchasedOrders", "Users", new { idkh = Session["IDCus"] }, new { @class = "dropdown-item XemThongTin" })
+
+                                    @Html.ActionLink("Đổi mật khẩu", "ChangePass", "Users", new { id = Session["IDCus"] }, new { @class = "dropdown-item XemThongTin" })
+
+                                    @Html.ActionLink("Đăng Xuất", "LogOut", "Users", null, new { @class = "dropdown-item XemThongTin" })
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Đăng Nhập", "Login", "Users", null, new { @class = "DangNhap" })
+                        }
+
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="container" id="main">
+        <div class="row navigationbar-container">
+            <div class="searchbar-container col-lg-3 col-md-7 col-sm-5">
+                <div class="searchbar align-bottom" style="margin-left:20px">
+                    @using (Html.BeginForm("Page_Search", "CitricStore", FormMethod.Get, new { @class = "form-inline" }))
+                    {
+                        <div class="row">
+                            <input type="Text" class="searchbar-form col-lg-8 col-xs-5 col-sm-6" value="@ViewBag.Keyword" name="searchString" placeholder="Tên ứng dụng">
+
+                            <input type="submit" class="btn col-lg-3 col-xs-3 col-sm-3" value="Tìm kiếm" style=" background-color: #FCAE03; margin-left:6px; color:black; font-size:15px; text-align:center; padding-left:0px; padding-right:0px;">
+                        </div>
+                    }
+                </div>
+            </div>        
+            <div class="col-lg-9 col-md-5 col-sm-7" style="background-color: rgb(18,18,18); padding: 0px;">
+                <div class="navbar navbar-dark navbar-expand-lg justify-content-md-start justify-content-lg-center justify-content-sm-end"
+                     style="font-size:20px;">
+                    <div class="" style="margin-left:0px;">
+                        <a class="navbar-brand" href=""></a>
+
+                        <button class="navbar-toggler" type="button"
+                                data-toggle="collapse" data-target="#collapsibleNavbar"
+                                style="margin-left:0px;margin-top:15px; background-color:none">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse " id="collapsibleNavbar"
+                             style="padding: 0px; padding-left:10px; background-color: none; word-break:break-word">
+                            <ul class="navbar-nav">
+                                <li class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" style="color: white; background-color:none"
+                                       role="button" id="dropdownMenu" type="button"
+                                       data-toggle="dropdown"
+                                       aria-haspopup="true" aria-expanded="false">
+                                        Game
+                                    </a>
+
+                                    <div class="dropdown-menu dropdown-menu-dark drop-down-hover" aria-labelledby="dropdownMenu" style="background-color: rgb(18,18,18); 
+                                    border: none; margin-left: -10px; padding: 0px; height: 228px;
+                                    overflow-y: scroll; opacity: 0.9; text-overflow: ellipsis; color:white ">
+                                        @Html.Action("HomePage_GetCategoryGameList", "CitricStore")
+                                    </div>
+                                </li>
+
+                                <li class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" style="color: white; margin-right:5px;"
+                                       role="button" id="dropdownMenu" type="button"
+                                       data-toggle="dropdown"
+                                       aria-haspopup="true" aria-expanded="false">
+                                        Phần Mềm
+                                    </a>
+
+                                    <div class="dropdown-menu dropdown-menu-dark col-md-3" aria-labelledby="dropdownMenu" 
+                                         style="background-color: rgb(18,18,18); border: none; 
+                                       padding: 0px; height: 228px; overflow-y: scroll; opacity: 0.9; 
+                                       text-overflow: ellipsis; width:fit-content">
+                                        @Html.Action("HomePage_GetCategorySoftList", "CitricStore")
+                                    </div>
+                                </li>
+
+                                <li class="nav-item" style="padding-top:8px;">
+                                    @if (Session["TaiKhoan"] != null)
+                                    {
+                                        @Html.ActionLink("Thành Viên", "ViewInfo", "Users", new { idkh = Session["IDCus"] }, new { @class = "ThanhVien" })
+                                    }
+                                    else
+                                    {
+                                        @Html.ActionLink("Thành Viên", "Login", "Users", null,new { @class = "ThanhVien" })
+                                    }
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        </div>
+            @RenderBody()
+    </div>
+
+    <footer id="footer" class="container-fluid" style="">
+        <div class="container" style=" top: 50%; left:50%; transform: translate(-50%, -50%); position:absolute ">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 justify-content-center" style="align-items:center;">
+
+                    <img src="~/Images/LOGO/LOGO_Black.png" alt="Citric Logo" style="width:50px; height:50px;margin-top:50px" />
+                    <br />
+                    <img src="~/Images/LOGO/CITRICSTORE.png" alt="Citric" style="width:auto; height:100px; margin-top:-20px" />
+                </div>
+                <div class="col-lg-3 col-md-4 d-flex justify-content-center justify-content-lg-between" style="align-self:center">
+                    <p>
+                        <strong>Citric Store</strong>
+                        là một trình duyệt dùng để tìm kiếm và tải các ứng dụng tiện ích, miễn phí. Nơi gợi ý, cung cấp thông tin, chức năng về các ứng dụng đến người dùng.
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-3" style="margin-top:40px;">
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="@Url.Action("HomePage","CitricStore")" class="nav-link p-0 text-muted">Cửa hàng</a></li>
+                        <li class="nav-item mb-2"><a style="color:black" href="@Url.Action("Page_FAQ","CitricStore")" class="nav-link p-0 text-muted" >Câu hỏi thường gặp</a></li>
+                        <li class="nav-item mb-2"><a style="color:black" href="@Url.Action("Login","Users")" class="nav-link p-0 text-muted">Thành Viên</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-2 d-flex justify-content-center">
+                    <a href="https://www.facebook.com/Citric-STORE-105168352423004">
+                        <i class="icon_lienlac fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/citricstoreweb/">
+                        <i class="icon_lienlac fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCDUIRh3pfeUoSUxB-JVLg4g">
+                        <i class="icon_lienlac fa-brands fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
